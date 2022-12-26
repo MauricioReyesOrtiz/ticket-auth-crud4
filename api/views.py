@@ -80,7 +80,7 @@ class UserViewSet(viewsets.ModelViewSet):  #ReadOnlyModelViewSet
     
     
 
-class LoginViewSet(views.APIView): #viewsets.ModelViewSet    views.APIView
+class LoginViewSet(viewsets.ModelViewSet): #viewsets.ModelViewSet    views.APIView
     permission_classes = [permissions.AllowAny] #.AllowAny
     #authentication_classes = [authentication.BasicAuthentication]
     def post(self, request):
