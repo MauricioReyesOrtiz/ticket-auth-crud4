@@ -80,7 +80,7 @@ class UserViewSet(viewsets.ModelViewSet):  #ReadOnlyModelViewSet
     
     
 
-class LoginView(viewsets.ModelViewSet): #viewsets.ModelViewSet    views.APIView
+class LoginViewSet(views.APIView): #viewsets.ModelViewSet    views.APIView
     permission_classes = [permissions.AllowAny] #.AllowAny
     #authentication_classes = [authentication.BasicAuthentication]
     def post(self, request):
@@ -104,7 +104,7 @@ class LoginView(viewsets.ModelViewSet): #viewsets.ModelViewSet    views.APIView
         # Si no es correcto devolvemos un error en la petición
         return response.Response(status=status.HTTP_404_NOT_FOUND)        
 
-class LogoutView(views.APIView):
+class LogoutViewSet(views.APIView):
     authentication_classes = [authentication.TokenAuthentication]
     def post(self, request):        
         request.user.auth_token.delete()

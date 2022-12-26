@@ -14,6 +14,9 @@ router.register('servicio', ServicioViewSet)
 router.register('ticket', TicketViewSet)
 router.register('ticketservicio', TicketServicioViewSet)
 router.register('user', UserViewSet)
+#router.register('logout', LogoutViewSet)
+#router.register('login', LoginViewSet)
+
 
 
 #---ESTO DE ABAJO NO TOCAR-------------------------------------------------------------
