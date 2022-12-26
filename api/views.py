@@ -80,8 +80,8 @@ class UserViewSet(viewsets.ModelViewSet):  #ReadOnlyModelViewSet
     
     
 
-class LoginView(views.APIView): #viewsets.ModelViewSet    views.APIView
-    permission_classes = [permissions.IsAdminUser,] #.AllowAny
+class LoginView(viewsets.ModelViewSet): #viewsets.ModelViewSet    views.APIView
+    permission_classes = [permissions.AllowAny] #.AllowAny
     #authentication_classes = [authentication.BasicAuthentication]
     def post(self, request):
         # Recuperamos las credenciales y autenticamos al usuario
