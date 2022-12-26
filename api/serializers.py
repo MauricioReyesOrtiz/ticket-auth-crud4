@@ -63,7 +63,7 @@ class TicketServicioSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'first_name', 'last_name', 'username', 'password', 'groups', 'email', 'is_superuser', 'active', 'staff_status', 'superuser_status'] #'is_superuser'
+        fields = ['id', 'first_name', 'last_name', 'username', 'password', 'groups', 'email', 'is_superuser', 'superuser_status'] #'is_superuser', 'active', 'staff_status', 
          #esconder password
         extra_kwargs = {
             'password': {'write_only': True, 'required': True}
