@@ -68,7 +68,7 @@ class UserViewSet(viewsets.ModelViewSet):  #ReadOnlyModelViewSet
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAdminUser,]
-    authentication_classes = [authentication.BasicAuthentication,]
+    authentication_classes = [authentication.TokenAuthentication,]
     
     
     
