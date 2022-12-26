@@ -1,5 +1,5 @@
 from rest_framework import routers
-from api.views import ClienteViewSet, CajeroViewSet, SucursalViewSet, TipoAtencionViewSet, CajaViewSet, ServicioViewSet, TicketViewSet, TicketServicioViewSet,UserViewSet, LogoutView , LoginView
+from api.views import ClienteViewSet, CajeroViewSet, SucursalViewSet, TipoAtencionViewSet, CajaViewSet, ServicioViewSet, TicketViewSet, TicketServicioViewSet, UserViewSet, LogoutView , LoginView
 from rest_framework.authtoken.views import obtain_auth_token
 from django.urls import path
 router  = routers.DefaultRouter()

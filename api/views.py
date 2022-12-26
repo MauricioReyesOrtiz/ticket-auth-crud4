@@ -65,15 +65,18 @@ class TicketServicioViewSet(viewsets.ModelViewSet):
 
 #----NO TOCAR LO DE ABAJO-------------------------------------------------------------------------------------
 class UserViewSet(viewsets.ModelViewSet):  #ReadOnlyModelViewSet
-  queryset = User.objects.all()
-  serializer_class = UserSerializer
-  permission_classes = [permissions.IsAdminUser,]
-  authentication_classes = [authentication.BasicAuthentication,]
+    queryset = User.objects.all()  
+    permission_classes = [permissions.AllowAny]
+    serializer_class = UserSerializer
     
     
-    #queryset = User.objects.all()  
-    #permission_classes = [permissions.AllowAny]
+    #queryset = User.objects.all()
     #serializer_class = UserSerializer
+    #permission_classes = [permissions.IsAdminUser,]
+    #authentication_classes = [authentication.BasicAuthentication,]
+    
+    
+    
     
 
 class LoginView(views.APIView):
