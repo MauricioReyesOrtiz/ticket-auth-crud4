@@ -99,7 +99,7 @@ WSGI_APPLICATION = 'proyectoapi.wsgi.application'
 #NOTA IMPORTANTE: SI DA ERROR, DEJAR CON LA BASE DE DATOS sqlite3 por defecto
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://postgres:postgres@localhost/postgres',
+        default='postgresql://postgres:postgres@git push origin master/postgres',
         conn_max_age=600
     )
 }
