@@ -67,20 +67,11 @@ class TicketServicioViewSet(viewsets.ModelViewSet):
 class UserViewSet(viewsets.ModelViewSet):  #ReadOnlyModelViewSet
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = [permissions.AllowAny,]
-    #authentication_classes = [authentication.TokenAuthentication,]
-    #permission_classes = [permissions.IsAdminUser,]
-    
-    
-    
-    #queryset = User.objects.all()  
-    #permission_classes = [permissions.AllowAny,] #permissions.AllowAny   permissions.IsAdminUser
-    #serializer_class = UserSerializer
-    #authentication_classes = [authentication.BasicAuthentication]
+    permission_classes = [permissions.IsAdminUser,]
+    authentication_classes = [authentication.BasicAuthentication,]
 
-class LoginView(views.APIView): #viewsets.ModelViewSet    views.APIView
-    permission_classes = [permissions.AllowAny] #.AllowAny
-    #authentication_classes = [authentication.BasicAuthentication]
+class LoginView(views.APIView):
+    permission_classes = [permissions.AllowAny]
     def post(self, request):
         # Recuperamos las credenciales y autenticamos al usuario
         username2= request.data.get('username', None)
