@@ -14,9 +14,10 @@ from rest_framework.authentication import TokenAuthentication
 class ClienteViewSet(viewsets.ModelViewSet):
     queryset = Cliente.objects.all()
     serializer_class = ClienteSerializer
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = [authentication.BasicAuthentication]
     # permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    # authentication_classes = [authentication.BasicAuthentication]
+    
     
 
 class CajeroViewSet(viewsets.ModelViewSet):
