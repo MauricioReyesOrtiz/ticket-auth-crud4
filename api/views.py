@@ -14,62 +14,69 @@ from rest_framework.authentication import TokenAuthentication
 class ClienteViewSet(viewsets.ModelViewSet):
     queryset = Cliente.objects.all()
     serializer_class = ClienteSerializer
-    permission_classes = [permissions.IsAuthenticated]
-    authentication_classes = [authentication.BasicAuthentication]
-    # permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    authentication_classes = [authentication.TokenAuthentication,]
     
     
 
 class CajeroViewSet(viewsets.ModelViewSet):
-  queryset = Cajero.objects.all()  
-  permission_classes = [permissions.AllowAny]
+  queryset = Cajero.objects.all()
   serializer_class = CajeroSerializer
+  permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+  authentication_classes = [authentication.BasicAuthentication,]
   
 class TipoAtencionViewSet(viewsets.ModelViewSet):
-  queryset = TipoAtencion.objects.all()  
-  permission_classes = [permissions.AllowAny]
+  queryset = TipoAtencion.objects.all()
   serializer_class = TipoAtencionSerializer
+  permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+  authentication_classes = [authentication.BasicAuthentication,]
 
 
 class SucursalViewSet(viewsets.ModelViewSet):
-  queryset = Sucursal.objects.all()  
-  permission_classes = [permissions.AllowAny]
+  queryset = Sucursal.objects.all()
   serializer_class = SucursalSerializer
+  permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+  authentication_classes = [authentication.BasicAuthentication,]
 
 
 class CajaViewSet(viewsets.ModelViewSet):
-  queryset = Caja.objects.all()  
-  permission_classes = [permissions.AllowAny]
+  queryset = Caja.objects.all()
   serializer_class = CajaSerializer
+  permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+  authentication_classes = [authentication.BasicAuthentication,]
   
   
 class ServicioViewSet(viewsets.ModelViewSet):
-  queryset = Servicio.objects.all()  
-  permission_classes = [permissions.AllowAny]
+  queryset = Servicio.objects.all()
   serializer_class = ServicioSerializer
+  permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+  authentication_classes = [authentication.TokenAuthentication,]
   
 
 #esta tabla hacer Ticket
 class TicketViewSet(viewsets.ModelViewSet):
   queryset = Ticket.objects.all()
-  permission_classes = [permissions.IsAuthenticated] #aqui cambia-no tocar
-  #permission_classes = [permissions.AllowAny]
-  authentication_classes = [authentication.TokenAuthentication,]#aqui cambi-no tocar
   serializer_class = TicketSerializer
+  permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+  authentication_classes = [authentication.TokenAuthentication,]
+  
 
 
 #esta tabla hacer TicketServicio
 class TicketServicioViewSet(viewsets.ModelViewSet):
   queryset = TicketServicio.objects.all()
-  permission_classes = [permissions.AllowAny]
   serializer_class = TicketServicioSerializer
+  permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+  authentication_classes = [authentication.TokenAuthentication,]
+  
+  
 
 #----NO TOCAR LO DE ABAJO-------------------------------------------------------------------------------------
 class UserViewSet(viewsets.ModelViewSet):  #ReadOnlyModelViewSet
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAdminUser,]
-    authentication_classes = [authentication.BasicAuthentication,]
+    authentication_classes = [authentication.TokenAuthentication,]
 
 class LoginView(views.APIView):
     permission_classes = [permissions.AllowAny]
